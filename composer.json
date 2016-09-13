@@ -1,0 +1,38 @@
+{
+  "name": "dotkernel/dot-event",
+  "type": "library",
+  "description": "Common base event objects and Event Manager container based initialization",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "n3vrax",
+      "email": "tibi@apidemia.com"
+    }
+  ],
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "psr/http-message": "^1.0",
+    "container-interop/container-interop": "^1.1",
+
+    "zendframework/zend-eventmanager": "^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8",
+    "squizlabs/php_codesniffer": "^2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "DotKernel\\DotEvent\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DotKernelTest\\DotEvent\\": "test/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.6-dev"
+    }
+  }
+}
