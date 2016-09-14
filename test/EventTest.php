@@ -7,11 +7,11 @@
  * Time: 1:21 AM
  */
 
-namespace DotKernelTest\DotEvent;
+namespace DotTest\Event;
 
 /**
  * Class EventTest
- * @package DotKernelTest\DotEvent
+ * @package DotTest\Event
  */
 class EventTest extends \PHPUnit_Framework_TestCase
 {
