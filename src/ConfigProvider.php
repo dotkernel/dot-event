@@ -17,7 +17,7 @@ use Zend\EventManager\SharedEventManagerInterface;
 
 /**
  * Class ConfigProvider
- * @package DotKernel\DotEvent
+ * @package Dot\Event
  */
 class ConfigProvider
 {

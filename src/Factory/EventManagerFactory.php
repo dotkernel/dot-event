@@ -16,7 +16,7 @@ use Zend\EventManager\SharedEventManagerInterface;
 
 /**
  * Class EventManagerFactory
- * @package DotKernel\DotEvent\Factory
+ * @package Dot\Event\Factory
  */
 class EventManagerFactory
 {

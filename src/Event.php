@@ -15,7 +15,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Class Event
- * @package DotKernel\DotEvent
+ * @package Dot\Event
  */
 class Event extends \Zend\EventManager\Event
 {
