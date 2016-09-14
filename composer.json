@@ -1,7 +1,7 @@
 {
   "name": "dotkernel/dot-event",
   "type": "library",
-  "description": "Common base event objects and Event Manager container based initialization",
+  "description": "Common base event objects based on Zend Event Manager",
   "license": "MIT",
   "authors": [
     {
@@ -22,12 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "DotKernel\\DotEvent\\": "src/"
+      "Dot\\Event\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "DotKernelTest\\DotEvent\\": "test/"
+      "DotTest\\Event\\": "test/"
     }
   },
   "extra": {

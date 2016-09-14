@@ -7,7 +7,7 @@
  * Time: 1:12 AM
  */
 
-namespace DotKernel\DotEvent\Factory;
+namespace Dot\Event\Factory;
 
 
 use Interop\Container\ContainerInterface;

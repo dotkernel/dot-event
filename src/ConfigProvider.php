@@ -7,10 +7,10 @@
  * Time: 1:13 AM
  */
 
-namespace DotKernel\DotEvent;
+namespace Dot\Event;
 
 
-use DotKernel\DotEvent\Factory\EventManagerFactory;
+use Dot\Event\Factory\EventManagerFactory;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\SharedEventManager;
 use Zend\EventManager\SharedEventManagerInterface;

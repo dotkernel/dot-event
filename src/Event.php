@@ -7,7 +7,7 @@
  * Time: 1:08 AM
  */
 
-namespace DotKernel\DotEvent;
+namespace Dot\Event;
 
 
 use Psr\Http\Message\ResponseInterface;
