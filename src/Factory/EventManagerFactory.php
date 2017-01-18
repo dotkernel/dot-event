@@ -9,7 +9,6 @@
 
 namespace Dot\Event\Factory;
 
-
 use Interop\Container\ContainerInterface;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\SharedEventManagerInterface;

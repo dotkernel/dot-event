@@ -9,7 +9,6 @@
 
 namespace Dot\Event;
 
-
 use Dot\Event\Factory\EventManagerFactory;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\SharedEventManager;
