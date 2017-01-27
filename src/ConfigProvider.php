@@ -9,6 +9,7 @@
 
 namespace Dot\Event;
 
+use Dot\Event\Factory\EventManagerAwareInitializer;
 use Dot\Event\Factory\EventManagerFactory;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\SharedEventManager;
@@ -43,7 +44,9 @@ class ConfigProvider
             'factories' => [
                 EventManagerInterface::class => EventManagerFactory::class,
             ],
-
+            'initializers' => [
+                EventManagerAwareInitializer::class,
+            ],
             'shared' => [
                 EventManagerInterface::class => false,
             ]
