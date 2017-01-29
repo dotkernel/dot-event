@@ -7,6 +7,8 @@
  * Time: 1:12 AM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Event\Factory;
 
 use Interop\Container\ContainerInterface;

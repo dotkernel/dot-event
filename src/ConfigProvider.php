@@ -7,6 +7,8 @@
  * Time: 1:13 AM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Event;
 
 use Dot\Event\Factory\EventManagerAwareInitializer;
@@ -24,7 +26,7 @@ class ConfigProvider
     /**
      * @return array
      */
-    public function __invoke()
+    public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
@@ -34,7 +36,7 @@ class ConfigProvider
     /**
      * @return array
      */
-    public function getDependencyConfig()
+    public function getDependencyConfig(): array
     {
         return [
             'invokables' => [

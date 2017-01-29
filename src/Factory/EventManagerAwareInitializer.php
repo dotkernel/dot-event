@@ -7,6 +7,8 @@
  * Time: 4:03 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Event\Factory;
 
 use Interop\Container\ContainerInterface;
@@ -21,6 +23,10 @@ use Zend\ServiceManager\Initializer\InitializerInterface;
  */
 class EventManagerAwareInitializer implements InitializerInterface
 {
+    /**
+     * @param ContainerInterface $container
+     * @param object $instance
+     */
     public function __invoke(ContainerInterface $container, $instance)
     {
         if ($instance instanceof EventManagerAwareInterface) {

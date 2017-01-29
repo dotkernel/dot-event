@@ -7,6 +7,8 @@
  * Time: 1:08 AM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Event;
 
 use Psr\Http\Message\ResponseInterface;
@@ -27,36 +29,32 @@ class Event extends \Zend\EventManager\Event
     /**
      * @return ServerRequestInterface
      */
-    public function getRequest()
+    public function getRequest(): ?ServerRequestInterface
     {
         return $this->request;
     }
 
     /**
      * @param ServerRequestInterface $request
-     * @return Event
      */
     public function setRequest(ServerRequestInterface $request)
     {
         $this->request = $request;
-        return $this;
     }
 
     /**
      * @return ResponseInterface
      */
-    public function getResponse()
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }
 
     /**
      * @param ResponseInterface $response
-     * @return Event
      */
     public function setResponse(ResponseInterface $response)
     {
         $this->response = $response;
-        return $this;
     }
 }
