@@ -11,7 +11,6 @@ declare(strict_types = 1);
 
 namespace Dot\Event;
 
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
@@ -22,9 +21,6 @@ class Event extends \Zend\EventManager\Event
 {
     /** @var  ServerRequestInterface */
     protected $request;
-
-    /** @var  ResponseInterface */
-    protected $response;
 
     /**
      * @return ServerRequestInterface
@@ -40,21 +36,5 @@ class Event extends \Zend\EventManager\Event
     public function setRequest(ServerRequestInterface $request)
     {
         $this->request = $request;
-    }
-
-    /**
-     * @return ResponseInterface
-     */
-    public function getResponse(): ?ResponseInterface
-    {
-        return $this->response;
-    }
-
-    /**
-     * @param ResponseInterface $response
-     */
-    public function setResponse(ResponseInterface $response)
-    {
-        $this->response = $response;
     }
 }
