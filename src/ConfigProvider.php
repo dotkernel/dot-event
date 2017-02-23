@@ -14,6 +14,7 @@ namespace Dot\Event;
 use Dot\Event\Factory\EventManagerAwareInitializer;
 use Dot\Event\Factory\EventManagerFactory;
 use Zend\EventManager\EventManagerInterface;
+use Zend\EventManager\SharedEventManager;
 use Zend\EventManager\SharedEventManagerInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -40,8 +41,11 @@ class ConfigProvider
     {
         return [
             'factories' => [
-                SharedEventManagerInterface::class => InvokableFactory::class,
+                SharedEventManager::class => InvokableFactory::class,
                 EventManagerInterface::class => EventManagerFactory::class,
+            ],
+            'aliases' => [
+                SharedEventManagerInterface::class => SharedEventManager::class,
             ],
             'initializers' => [
                 EventManagerAwareInitializer::class,
