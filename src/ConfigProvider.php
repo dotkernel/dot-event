@@ -11,7 +11,6 @@ declare(strict_types = 1);
 
 namespace Dot\Event;
 
-use Dot\Event\Factory\EventManagerAwareInitializer;
 use Dot\Event\Factory\EventManagerFactory;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\SharedEventManager;
@@ -46,9 +45,6 @@ class ConfigProvider
             ],
             'aliases' => [
                 SharedEventManagerInterface::class => SharedEventManager::class,
-            ],
-            'initializers' => [
-                EventManagerAwareInitializer::class,
             ],
             'shared' => [
                 EventManagerInterface::class => false,
