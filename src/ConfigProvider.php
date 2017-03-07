@@ -7,13 +7,15 @@
  * Time: 1:13 AM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Event;
 
-use Dot\Event\Factory\EventManagerAwareInitializer;
 use Dot\Event\Factory\EventManagerFactory;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\SharedEventManager;
 use Zend\EventManager\SharedEventManagerInterface;
+use Zend\ServiceManager\Factory\InvokableFactory;
 
 /**
  * Class ConfigProvider
@@ -24,7 +26,7 @@ class ConfigProvider
     /**
      * @return array
      */
-    public function __invoke()
+    public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
@@ -34,18 +36,15 @@ class ConfigProvider
     /**
      * @return array
      */
-    public function getDependencyConfig()
+    public function getDependencyConfig(): array
     {
         return [
-            'invokables' => [
-                SharedEventManagerInterface::class => SharedEventManager::class,
-            ],
-
             'factories' => [
+                SharedEventManager::class => InvokableFactory::class,
                 EventManagerInterface::class => EventManagerFactory::class,
             ],
-            'initializers' => [
-                EventManagerAwareInitializer::class,
+            'aliases' => [
+                SharedEventManagerInterface::class => SharedEventManager::class,
             ],
             'shared' => [
                 EventManagerInterface::class => false,
