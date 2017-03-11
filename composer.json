@@ -1,7 +1,7 @@
 {
   "name": "dotkernel/dot-event",
   "type": "library",
-  "description": "Common base event objects based on Zend Event Manager",
+  "description": "DotKernel event component extending and customizing zend-eventmanager",
   "license": "MIT",
   "authors": [
     {
