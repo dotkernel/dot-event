@@ -1,3 +1,21 @@
+## Unreleased(0.2.0)
+
+### Changed
+* Updated factories to typehint against PSR11 container
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
 ## 0.1.1 - 2017-03-11
 
 ### Added
