@@ -1,38 +1,39 @@
 {
-  "name": "dotkernel/dot-event",
-  "type": "library",
-  "description": "DotKernel event component extending and customizing zend-eventmanager",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "DotKernel Team",
-      "email": "team@dotkernel.com"
+    "name": "dotkernel/dot-event",
+    "type": "library",
+    "description": "DotKernel event component extending and customizing laminas-eventmanager",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DotKernel Team",
+            "email": "team@dotkernel.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "psr/http-message": "^1.0",
+        "laminas/laminas-servicemanager": "^3.3",
+        "laminas/laminas-eventmanager": "^3.2",
+        "laminas/laminas-dependency-plugin": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dot\\Event\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DotTest\\Event\\": "test/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.2-dev",
+            "dev-develop": "0.3-dev"
+        }
     }
-  ],
-  "require": {
-    "php": "^7.1",
-    "psr/http-message": "^1.0",
-    "zendframework/zend-servicemanager": "^3.3",
-    "zendframework/zend-eventmanager": "^3.2"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^4.8",
-    "squizlabs/php_codesniffer": "^2.3"
-  },
-  "autoload": {
-    "psr-4": {
-      "Dot\\Event\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "DotTest\\Event\\": "test/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "0.2-dev",
-      "dev-develop": "0.3-dev"
-    }
-  }
 }

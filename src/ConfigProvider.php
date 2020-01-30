@@ -10,10 +10,10 @@ declare(strict_types = 1);
 namespace Dot\Event;
 
 use Dot\Event\Factory\EventManagerFactory;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\SharedEventManager;
-use Zend\EventManager\SharedEventManagerInterface;
-use Zend\ServiceManager\Factory\InvokableFactory;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\EventManager\SharedEventManager;
+use Laminas\EventManager\SharedEventManagerInterface;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 /**
  * Class ConfigProvider

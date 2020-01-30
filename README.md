@@ -1,3 +1,3 @@
 # dot-event
 
-DotKernel event component extending and customizing [zend-eventmanager](https://github.com/zendframework/zend-eventmanager)
+DotKernel event component extending and customizing [laminas-eventmanager](https://docs.laminas.dev/laminas-eventmanager/)

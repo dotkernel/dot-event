@@ -13,7 +13,7 @@ namespace Dot\Event;
  * Class Event
  * @package Dot\Event
  */
-class Event extends \Zend\EventManager\Event
+class Event extends \Laminas\EventManager\Event
 {
 
 }
