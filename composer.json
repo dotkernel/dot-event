@@ -3,6 +3,12 @@
     "type": "library",
     "description": "DotKernel event component extending and customizing laminas-eventmanager",
     "license": "MIT",
+    "keywords": [
+        "laminas",
+        "event",
+        "events",
+        "eventmanager"
+    ],
     "authors": [
         {
             "name": "DotKernel Team",
