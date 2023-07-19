@@ -1,20 +1,27 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-event/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-event/blob/master/LICENSE.md MIT License
- */
+
+declare(strict_types=1);
 
 namespace DotTest\Event;
 
-/**
- * Class EventTest
- * @package DotTest\Event
- */
-class EventTest extends \PHPUnit_Framework_TestCase
+use Dot\Event\Event;
+use PHPUnit\Framework\TestCase;
+
+class EventTest extends TestCase
 {
-    public function testSomething()
+    public function testEventCreation(): void
     {
-        //...
+        $event = new Event('testEvent', $this);
+        $this->assertInstanceOf(Event::class, $event);
+    }
+
+    public function testEventPropagation(): void
+    {
+        $event = new Event('testEvent', $this);
+        // By default, events should be propagating
+        $this->assertFalse($event->propagationIsStopped());
+        // Test that you can stop event propagation
+        $event->stopPropagation(true);
+        $this->assertTrue($event->propagationIsStopped());
     }
 }
