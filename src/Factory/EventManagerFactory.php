@@ -6,10 +6,16 @@ namespace Dot\Event\Factory;
 
 use Laminas\EventManager\EventManager;
 use Laminas\EventManager\SharedEventManagerInterface;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class EventManagerFactory
 {
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public function __invoke(ContainerInterface $container): EventManager
     {
         $sharedEventManager = $container->has(SharedEventManagerInterface::class)

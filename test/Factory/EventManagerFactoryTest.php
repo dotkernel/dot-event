@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DotTest\Event;
+namespace DotTest\Event\Factory;
 
 use Dot\Event\Factory\EventManagerFactory;
 use Laminas\EventManager\EventManager;
@@ -17,6 +17,7 @@ class EventManagerFactoryTest extends TestCase
     private EventManagerFactory $eventManagerFactory;
     private ContainerInterface|MockObject $container;
     private SharedEventManagerInterface|MockObject $sharedEventManager;
+
     /**
      * @throws Exception
      */
