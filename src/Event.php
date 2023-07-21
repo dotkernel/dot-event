@@ -1,19 +1,16 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-event/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-event/blob/master/LICENSE.md MIT License
- */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Event;
 
+use ArrayAccess;
+
 /**
- * Class Event
- * @package Dot\Event
+ * @template TTarget of object|string|null
+ * @template TParams of array|ArrayAccess|object
+ * @extends \Laminas\EventManager\Event<TTarget, TParams>
  */
 class Event extends \Laminas\EventManager\Event
 {
-
 }
