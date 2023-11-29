@@ -3,7 +3,7 @@
 DotKernel event component extending and customizing [laminas-eventmanager](https://docs.laminas.dev/laminas-eventmanager/)
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-event)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/3.4.3)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/3.4.2)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/network)
