@@ -15,8 +15,6 @@ The listeners needs to be registered in the `ConfigProvider`, under the
 
 The below example will implement an event for update users.
 
-**Event**
-
 Every event needs to extends `Dot\Event\Event`
 
 ```php
@@ -32,8 +30,6 @@ class UserEvent extends Event
     
 }
 ```
-
-**Listeners**
 
 We use the concept of listener aggregates because with this approach in a single class
 we can listen to multiple events. If you pay attention, in the above event we have 2 events
@@ -77,7 +73,7 @@ class UserEventListener implements DotEventListenerInterface
 ```
 
 > **NOTE**
-> 
+>
 > The trait `Laminas\EventManager\ListenerAggregateTrait` can be used to help implementing
 > `DotEventListenerInterface`. It defines the `$listeners` property, and `detach()` logic
 
@@ -88,8 +84,6 @@ We register the listener in the `ConfigProvider`
     UserEventListener::class
 ]
 ```
-
-**EventManager**
 
 Every event can be triggered from an `Laminas\EventManager\EventManager` instance loaded
 from the container
@@ -117,7 +111,7 @@ class MyService
 ```
 
 > **NOTE**
-> 
+>
 > To inject classes from the container we use `Dot\AnnotatedServices\Attribute\Inject` from
 > `dot-annotated-services` package, but you can use your own logic to get things from
 > the container
