@@ -6,17 +6,17 @@ namespace DotTest\Event\Factory;
 
 use Dot\Event\Factory\EventManagerFactory;
 use Laminas\EventManager\EventManager;
-use Laminas\EventManager\SharedEventManagerInterface;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class EventManagerFactoryTest extends TestCase
 {
     private EventManagerFactory $eventManagerFactory;
     private ContainerInterface|MockObject $container;
-    private SharedEventManagerInterface|MockObject $sharedEventManager;
 
     /**
      * @throws Exception
@@ -24,36 +24,23 @@ class EventManagerFactoryTest extends TestCase
     public function setUp(): void
     {
         $this->eventManagerFactory = new EventManagerFactory();
-        $this->sharedEventManager  = $this->createMock(SharedEventManagerInterface::class);
         $this->container           = $this->createMock(ContainerInterface::class);
     }
 
-    public function testInvokeWithSharedEventManager(): void
-    {
-        $container          = $this->container;
-        $sharedEventManager = $this->sharedEventManager;
-        $container->expects($this->once())
-            ->method('has')
-            ->with(SharedEventManagerInterface::class)
-            ->willReturn(true);
-        $container->expects($this->once())
-            ->method('get')
-            ->with(SharedEventManagerInterface::class)
-            ->willReturn($sharedEventManager);
-        $factory      = new EventManagerFactory();
-        $eventManager = $factory->__invoke($container);
-        $this->assertInstanceOf(EventManager::class, $eventManager);
-    }
-
-    public function testInvokeWithoutSharedEventManager(): void
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function testInvokeEventManager(): void
     {
         $container = $this->container;
+
         $container->expects($this->once())
-            ->method('has')
-            ->with(SharedEventManagerInterface::class)
-            ->willReturn(false);
-        $factory      = $this->eventManagerFactory;
-        $eventManager = $factory->__invoke($container);
+            ->method('get')
+            ->with('config')
+            ->willReturn([]);
+        $factory      = new EventManagerFactory();
+        $eventManager = $factory($container);
         $this->assertInstanceOf(EventManager::class, $eventManager);
     }
 }
