@@ -1,6 +1,11 @@
 # dot-event
 
-DotKernel event component extending and customizing [laminas-eventmanager](https://docs.laminas.dev/laminas-eventmanager/)
+> [!IMPORTANT]
+> dot-event is a wrapper on top of [laminas-eventmanager](https://github.com/laminas/laminas-eventmanager)
+>
+> ![OSS Lifecycle](https://img.shields.io/osslifecycle/laminas/laminas-eventmanager)
+
+## dot-event badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-event)
 ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/3.4.2)
