@@ -13,7 +13,7 @@ nav:
       - Configuration: v4/configuration.md
       - Usage: v4/usage.md
 site_name: dot-event
-site_description: "DotKernel's event manager package"
+site_description: "Dotkernel's event manager package"
 repo_url: "https://github.com/dotkernel/dot-event"
 plugins:
   - search

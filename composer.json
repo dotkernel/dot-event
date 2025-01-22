@@ -1,7 +1,7 @@
 {
     "name": "dotkernel/dot-event",
     "type": "library",
-    "description": "DotKernel event component extending and customizing laminas-eventmanager",
+    "description": "Dotkernel event component extending and customizing laminas-eventmanager",
     "license": "MIT",
     "homepage": "https://github.com/dotkernel/dot-event",
     "keywords": [
@@ -12,15 +12,15 @@
     ],
     "authors": [
         {
-            "name": "DotKernel Team",
+            "name": "Dotkernel Team",
             "email": "team@dotkernel.com"
         }
     ],
     "require": {
-        "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-        "psr/http-message": "^1.0 || ^2.0",
+        "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
         "laminas/laminas-eventmanager": "^3.4",
-        "laminas/laminas-servicemanager": "^3.10 || ^4.0"
+        "laminas/laminas-servicemanager": "^3.10 || ^4.0",
+        "psr/http-message": "^1.0 || ^2.0"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "^3.0",
