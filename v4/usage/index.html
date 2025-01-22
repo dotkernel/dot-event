@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <meta name="description" content="DotKernel's event manager package">
+        <meta name="description" content="Dotkernel's event manager package">
         
         
 
@@ -264,11 +264,10 @@
 <li>One or more <strong>listeners</strong> that will be registered on the application config ( <code>ConfigProvider</code> )</li>
 <li>An instance of <strong>EventManager</strong> from the <strong>container</strong> so you can trigger the events</li>
 </ul>
-<p>The listeners needs to be registered in the <code>ConfigProvider</code>, under the
-<code>['dot-event']</code> key</p>
+<p>The listeners needs to be registered in the <code>ConfigProvider</code>, under the <code>['dot-event']</code> key.</p>
 <h2 id="example">Example</h2>
 <p>The below example will implement an event for update users.</p>
-<p>Every event needs to extends <code>Dot\Event\Event</code></p>
+<p>Every event needs to extends <code>Dot\Event\Event</code>:</p>
 <pre class="highlight"><code class="language-php">class UserEvent extends Event
 {
     public const EVENTS_PRE_UPDATE = 'pre.update.user';
@@ -280,11 +279,10 @@
     }
 
 }</code></pre>
-<p>We use the concept of listener aggregates because with this approach in a single class
-we can listen to multiple events. If you pay attention, in the above event we have 2 events
-<code>pre.update.user</code> and <code>post.update.user</code></p>
-<p>Every listener needs to extend <code>Dot\Event\ControllerEventListenerInterface</code>. The interface
-defines two methods <code>attach()</code> and <code>detach()</code></p>
+<p>We use the concept of listener aggregates because with this approach in a single class we can listen to multiple events.
+If you pay attention, in the above event we have 2 events <code>pre.update.user</code> and <code>post.update.user</code>.</p>
+<p>Every listener needs to extend <code>Dot\Event\ControllerEventListenerInterface</code>.
+The interface defines two methods <code>attach()</code> and <code>detach()</code>.</p>
 <pre class="highlight"><code class="language-php">class UserEventListener implements DotEventListenerInterface
 {
     use ListenerAggregateTrait;
@@ -317,18 +315,15 @@ defines two methods <code>attach()</code> and <code>detach()</code></p>
 
 }</code></pre>
 <blockquote>
-<p><strong>NOTE</strong></p>
-<p>The trait <code>Laminas\EventManager\ListenerAggregateTrait</code> can be used to help implementing
-<code>DotEventListenerInterface</code>. It defines the <code>$listeners</code> property, and <code>detach()</code> logic</p>
+<p>The trait <code>Laminas\EventManager\ListenerAggregateTrait</code> can be used to help implementing <code>DotEventListenerInterface</code>.
+It defines the <code>$listeners</code> property, and <code>detach()</code> logic.</p>
 </blockquote>
-<p>We register the listener in the <code>ConfigProvider</code></p>
+<p>We register the listener in the <code>ConfigProvider</code>:</p>
 <pre class="highlight"><code class="language-php">'dot-event' =&gt; [
     UserEventListener::class
 ]</code></pre>
-<p>Every event can be triggered from an <code>Laminas\EventManager\EventManager</code> instance loaded
-from the container</p>
-<pre class="highlight"><code class="language-php">
-class MyService
+<p>Every event can be triggered from an <code>Laminas\EventManager\EventManager</code> instance loaded from the container:</p>
+<pre class="highlight"><code class="language-php">class MyService
 {
     #[Dot\AnnotatedServices\Attribute\Inject(EventManagerInterface::class)]
     public function __construct(private EventManagerInterface $eventManager) 
@@ -347,15 +342,11 @@ class MyService
 }
 </code></pre>
 <blockquote>
-<p><strong>NOTE</strong></p>
-<p>To inject classes from the container we use <code>Dot\AnnotatedServices\Attribute\Inject</code> from
-<code>dot-annotated-services</code> package, but you can use your own logic to get things from
-the container</p>
+<p>To inject classes from the container we use <code>Dot\AnnotatedServices\Attribute\Inject</code> from <code>dot-annotated-services</code> package, but you can use your own logic to get things from the container.</p>
 </blockquote>
 <h2 id="keep-all-in-order">Keep all in order</h2>
 <p>You can attach multiple listeners to the same event but with different logic.</p>
-<p>All listeners are executed in the order in which they are attached. However, you can provide a priority value
-and you can influence the order of the execution</p>
+<p>All listeners are executed in the order in which they are attached. However, you can provide a priority value and you can influence the order of the execution.</p>
 <ul>
 <li>Higher priority values execute earlier.</li>
 <li>Lower (negative) priority values execute later.</li>
@@ -378,12 +369,10 @@ and you can influence the order of the execution</p>
     // ... callbacks
 
 }</code></pre>
-<p>As you can notice, we attach the same event name to listeners, so once we trigger the event both
-callback will run one after another. But because we provide priority, the second attach will run first
-because has a higher priority.</p>
+<p>As you can notice, we attach the same event name to listeners, so once we trigger the event both callback will run one after another.
+But because we provide priority, the second attach will run first because has a higher priority.</p>
 <h2 id="short-circuiting-the-execution">Short-circuiting the execution</h2>
-<p>Sometimes you have more listeners to an event, and you may want to stop the execution of the event if something is wrong
-in one of the listeners.</p>
+<p>Sometimes you have more listeners to an event, and you may want to stop the execution of the event if something is wrong in one of the listeners.</p>
 <pre class="highlight"><code class="language-php">
     public function onUserPostUpdateFirst(UserEvent $event)
     {
@@ -397,9 +386,7 @@ in one of the listeners.</p>
 
     }</code></pre>
 <h2 id="returns">Returns</h2>
-<p>You can return whatever you want in a listener callback. All events trigger returns an instance of
-<code>Laminas\EventManager\ResponseCollection</code> so you can have information if the event has stopped, or if event
-returned some expected object.</p>
+<p>You can return whatever you want in a listener callback. All events trigger returns an instance of <code>Laminas\EventManager\ResponseCollection</code> so you can have information if the event has stopped, or if event returned some expected object.</p>
 <pre class="highlight"><code class="language-php">class MyService
 {
     #[Dot\AnnotatedServices\Attribute\Inject(EventManagerInterface::class)]
@@ -421,12 +408,11 @@ returned some expected object.</p>
 
 
     <nav>
-    <ul class="page-nav hidden-print">
+    <ul class="list-unstyled page-nav row w-100 mt-5 mb-3 pt-5 pb-3">
         
-        <li class="page-nav__item">
+        <li class="col text-nowrap text-md-start">
             
                 <a rel="prev" class="page-nav__link page-nav__link--prev" href="../configuration/">
-                    <small class="page-nav__label">Previous</small>
                     <i class="bi bi-chevron-left"></i>
                     Configuration
                 </a>
@@ -434,7 +420,7 @@ returned some expected object.</p>
         </li>
 
         
-        <li class="page-nav__item">
+        <li class="col text-nowrap text-md-end pe-0">
             
         </li>
     </ul>
@@ -450,15 +436,13 @@ returned some expected object.</p>
         
         <footer class="footer">
     <div class="container">
+        <hr class="mb-5" />
+
         <div class="row">
             <div class="col-md-9">
-                <div class="footer_head">
-                    <p>Dotkernel</p>
-                </div>
-
                 <div class="row">
-                    <div class="col-md-6 dk_widget">
-                        <p>Dotkernel API</p>
+                    <div class="col-lg-4 col-md-6 dk_widget">
+                        <p class="ms-0">API</p>
 
                         <a href="https://docs.dotkernel.org/api-documentation/">
                             <i class="bi bi-arrow-return-right"></i>
@@ -466,8 +450,8 @@ returned some expected object.</p>
                         </a>
                     </div>
 
-                    <div class="col-md-6 dk_widget">
-                        <p>Dotkernel Admin</p>
+                    <div class="col-lg-4 col-md-6 dk_widget">
+                        <p class="ms-0">Admin</p>
 
                         <a href="https://docs.dotkernel.org/admin-documentation/">
                             <i class="bi bi-arrow-return-right"></i>
@@ -475,8 +459,8 @@ returned some expected object.</p>
                         </a>
                     </div>
 
-                    <div class="col-md-6 dk_widget">
-                        <p>Dotkernel Frontend</p>
+                    <div class="col-lg-4 col-md-6 dk_widget">
+                        <p class="ms-0">Frontend</p>
 
                         <a href="https://docs.dotkernel.org/frontend-documentation/">
                             <i class="bi bi-arrow-return-right"></i>
@@ -484,8 +468,8 @@ returned some expected object.</p>
                         </a>
                     </div>
 
-                    <div class="col-md-6 dk_widget">
-                        <p>Dotkernel Light</p>
+                    <div class="col-lg-4 col-md-6 dk_widget">
+                        <p class="ms-0">Light</p>
 
                         <a href="https://docs.dotkernel.org/light-documentation/">
                             <i class="bi bi-arrow-return-right"></i>
@@ -493,8 +477,8 @@ returned some expected object.</p>
                         </a>
                     </div>
 
-                    <div class="col-md-6 dk_widget">
-                        <p>Dotkernel Packages</p>
+                    <div class="col-lg-4 col-md-6 dk_widget">
+                        <p class="ms-0">Dotkernel Packages</p>
 
                         <a href="https://docs.dotkernel.org/packages/">
                             <i class="bi bi-arrow-return-right"></i>
@@ -502,8 +486,8 @@ returned some expected object.</p>
                         </a>
                     </div>
 
-                    <div class="col-md-6 dk_widget">
-                        <p>Dotkernel environment</p>
+                    <div class="col-lg-4 col-md-6 dk_widget">
+                        <p class="ms-0">Development environment</p>
 
                         <a href="https://docs.dotkernel.org/development/">
                             <i class="bi bi-arrow-return-right"></i>
@@ -513,34 +497,33 @@ returned some expected object.</p>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 pt-3">
                 <div class="footer_head">
                     <p>Support</p>
                 </div>
 
-                <ul class="support__list">
-                    <li class="support__list-item">
+                <ul class="support__list row">
+                    <li class="support__list-item col-lg-6 mb-md-3">
                         <a href="https://github.com/dotkernel" class="support__link" title="GitHub" target="_blank">
                             <i class="bi bi-github"></i> GitHub
                         </a>
                     </li>
-                    <li class="support__list-item">
+                    <li class="support__list-item col-lg-6 mb-md-3">
                         <a href="https://dotkernel.slack.com" class="support__link" title="Chat" target="_blank">
                             <i class="bi bi-slack"></i> Slack
                         </a>
                     </li>
-                    <li class="support__list-item">
+                    <li class="support__list-item col-lg-6 mb-md-3">
                         <a href="https://twitter.com/dotkernel" class="support__link" title="X (Twitter)" target="_blank">
                             <i class="bi bi-twitter-x"></i> Twitter
                         </a>
                     </li>
-
-                    <li class="support__list-item">
+                    <li class="support__list-item col-lg-6 mb-md-3">
                         <a href="https://www.dotkernel.com/blog/" class="support__link" title="Blog" target="_blank">
                             <i class="bi bi-file-post"></i> Blog
                         </a>
                     </li>
-                    <li class="support__list-item">
+                    <li class="support__list-item col-lg-6 mb-md-3">
                         <a href="https://www.dotkernel.com/feed/" class="support__link" title="Blog feed" target="_blank">
                             <i class="bi bi-rss-fill"></i> Feed
                         </a>
@@ -549,8 +532,10 @@ returned some expected object.</p>
             </div>
         </div>
 
+        <hr class="mt-5" />
+
         <div class="footer_copy">
-            &#169; 2024 Dotkernel
+            &#169; Copyright Dotkernel 2024. All rights reserved.
         </div>
     </div>
 </footer>
