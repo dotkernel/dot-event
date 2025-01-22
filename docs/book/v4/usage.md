@@ -8,14 +8,13 @@ To start using events you will need the following things:
 - One or more **listeners** that will be registered on the application config ( ``ConfigProvider`` )
 - An instance of **EventManager** from the **container** so you can trigger the events
 
-The listeners needs to be registered in the `ConfigProvider`, under the
-`['dot-event']` key
+The listeners needs to be registered in the `ConfigProvider`, under the `['dot-event']` key.
 
 ## Example
 
 The below example will implement an event for update users.
 
-Every event needs to extends `Dot\Event\Event`
+Every event needs to extends `Dot\Event\Event`:
 
 ```php
 class UserEvent extends Event
@@ -31,12 +30,11 @@ class UserEvent extends Event
 }
 ```
 
-We use the concept of listener aggregates because with this approach in a single class
-we can listen to multiple events. If you pay attention, in the above event we have 2 events
-`pre.update.user` and `post.update.user`
+We use the concept of listener aggregates because with this approach in a single class we can listen to multiple events.
+If you pay attention, in the above event we have 2 events `pre.update.user` and `post.update.user`.
 
-Every listener needs to extend `Dot\Event\ControllerEventListenerInterface`. The interface
-defines two methods `attach()` and `detach()`
+Every listener needs to extend `Dot\Event\ControllerEventListenerInterface`.
+The interface defines two methods `attach()` and `detach()`.
 
 ```php
 class UserEventListener implements DotEventListenerInterface
@@ -72,12 +70,10 @@ class UserEventListener implements DotEventListenerInterface
 }
 ```
 
-> **NOTE**
->
-> The trait `Laminas\EventManager\ListenerAggregateTrait` can be used to help implementing
-> `DotEventListenerInterface`. It defines the `$listeners` property, and `detach()` logic
+> The trait `Laminas\EventManager\ListenerAggregateTrait` can be used to help implementing `DotEventListenerInterface`.
+> It defines the `$listeners` property, and `detach()` logic.
 
-We register the listener in the `ConfigProvider`
+We register the listener in the `ConfigProvider`:
 
 ```php
 'dot-event' => [
@@ -85,11 +81,9 @@ We register the listener in the `ConfigProvider`
 ]
 ```
 
-Every event can be triggered from an `Laminas\EventManager\EventManager` instance loaded
-from the container
+Every event can be triggered from an `Laminas\EventManager\EventManager` instance loaded from the container:
 
 ```php
-
 class MyService
 {
     #[Dot\AnnotatedServices\Attribute\Inject(EventManagerInterface::class)]
@@ -110,18 +104,13 @@ class MyService
 
 ```
 
-> **NOTE**
->
-> To inject classes from the container we use `Dot\AnnotatedServices\Attribute\Inject` from
-> `dot-annotated-services` package, but you can use your own logic to get things from
-> the container
+> To inject classes from the container we use `Dot\AnnotatedServices\Attribute\Inject` from `dot-annotated-services` package, but you can use your own logic to get things from the container.
 
 ## Keep all in order
 
 You can attach multiple listeners to the same event but with different logic.
 
-All listeners are executed in the order in which they are attached. However, you can provide a priority value
-and you can influence the order of the execution
+All listeners are executed in the order in which they are attached. However, you can provide a priority value and you can influence the order of the execution.
 
 - Higher priority values execute earlier.
 - Lower (negative) priority values execute later.
@@ -147,14 +136,12 @@ class UserEventListener implements DotEventListenerInterface
 }
 ```
 
-As you can notice, we attach the same event name to listeners, so once we trigger the event both
-callback will run one after another. But because we provide priority, the second attach will run first
-because has a higher priority.
+As you can notice, we attach the same event name to listeners, so once we trigger the event both callback will run one after another.
+But because we provide priority, the second attach will run first because has a higher priority.
 
 ## Short-circuiting the execution
 
-Sometimes you have more listeners to an event, and you may want to stop the execution of the event if something is wrong
-in one of the listeners.
+Sometimes you have more listeners to an event, and you may want to stop the execution of the event if something is wrong in one of the listeners.
 
 ```php
 
@@ -173,9 +160,7 @@ in one of the listeners.
 
 ## Returns
 
-You can return whatever you want in a listener callback. All events trigger returns an instance of
-`Laminas\EventManager\ResponseCollection` so you can have information if the event has stopped, or if event
-returned some expected object.
+You can return whatever you want in a listener callback. All events trigger returns an instance of `Laminas\EventManager\ResponseCollection` so you can have information if the event has stopped, or if event returned some expected object.
 
 ```php
 class MyService
