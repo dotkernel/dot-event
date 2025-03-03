@@ -1,12 +1,17 @@
 # dot-event
 
-> [!IMPORTANT]
+Dotkernel's event manager package.
+
 > dot-event is a wrapper on top of [laminas/laminas-eventmanager](https://github.com/laminas/laminas-eventmanager)
 
-## dot-event badges
+## Documentation
+
+Documentation is available at: https://docs.dotkernel.org/dot-event/.
+
+## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-event)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/4.2.1)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/4.3.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/network)
@@ -15,3 +20,4 @@
 
 [![Build Static](https://github.com/dotkernel/dot-event/actions/workflows/continuous-integration.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-event/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-event/graph/badge.svg?token=C00YQLVZ7Y)](https://codecov.io/gh/dotkernel/dot-event)
+[![PHPStan](https://github.com/dotkernel/dot-event/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-event/actions/workflows/static-analysis.yml)

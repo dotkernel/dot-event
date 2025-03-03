@@ -39,8 +39,8 @@ class EventManagerFactoryTest extends TestCase
             ->method('get')
             ->with('config')
             ->willReturn([]);
-        $factory      = new EventManagerFactory();
+        $factory      = $this->eventManagerFactory;
         $eventManager = $factory($container);
-        $this->assertInstanceOf(EventManager::class, $eventManager);
+        $this->assertSame(EventManager::class, $eventManager::class);
     }
 }
