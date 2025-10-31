@@ -11,7 +11,7 @@ Documentation is available at: https://docs.dotkernel.org/dot-event/.
 ## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-event)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/4.3.0)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/4.4.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/network)
