@@ -12,7 +12,7 @@ class EventTest extends TestCase
     public function testEventCreation(): void
     {
         $event = new Event('testEvent', $this);
-        $this->assertInstanceOf(Event::class, $event);
+        $this->assertContainsOnlyInstancesOf(Event::class, [$event]);
     }
 
     public function testEventPropagation(): void

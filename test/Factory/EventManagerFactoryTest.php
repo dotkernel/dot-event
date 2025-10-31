@@ -42,7 +42,7 @@ class EventManagerFactoryTest extends TestCase
             ->willReturn($sharedEventManager);
         $factory      = new EventManagerFactory();
         $eventManager = $factory->__invoke($container);
-        $this->assertInstanceOf(EventManager::class, $eventManager);
+        $this->assertContainsOnlyInstancesOf(EventManager::class, [$eventManager]);
     }
 
     public function testInvokeWithoutSharedEventManager(): void
@@ -54,6 +54,6 @@ class EventManagerFactoryTest extends TestCase
             ->willReturn(false);
         $factory      = $this->eventManagerFactory;
         $eventManager = $factory->__invoke($container);
-        $this->assertInstanceOf(EventManager::class, $eventManager);
+        $this->assertContainsOnlyInstancesOf(EventManager::class, [$eventManager]);
     }
 }
