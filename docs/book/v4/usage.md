@@ -2,19 +2,19 @@
 
 This tutorial explores various examples of dot-event usages.
 
-To start using events you will need the following things:
+To start using events, you will need the following things:
 
 - An **Event**
-- One or more **listeners** that will be registered on the application config ( ``ConfigProvider`` )
+- One or more **listeners** that will be registered on the application config (`ConfigProvider`)
 - An instance of **EventManager** from the **container** so you can trigger the events
 
-The listeners needs to be registered in the `ConfigProvider`, under the `['dot-event']` key.
+The listeners need to be registered in the `ConfigProvider`, under the `['dot-event']` key.
 
 ## Example
 
 The below example will implement an event for update users.
 
-Every event needs to extends `Dot\Event\Event`:
+Every event needs to extend `Dot\Event\Event`:
 
 ```php
 class UserEvent extends Event
@@ -31,7 +31,7 @@ class UserEvent extends Event
 ```
 
 We use the concept of listener aggregates because with this approach in a single class we can listen to multiple events.
-If you pay attention, in the above event we have 2 events `pre.update.user` and `post.update.user`.
+If you pay attention, in the above event we have two events `pre.update.user` and `post.update.user`.
 
 Every listener needs to extend `Dot\Event\ControllerEventListenerInterface`.
 The interface defines two methods `attach()` and `detach()`.
@@ -110,10 +110,10 @@ class MyService
 
 You can attach multiple listeners to the same event but with different logic.
 
-All listeners are executed in the order in which they are attached. However, you can provide a priority value and you can influence the order of the execution.
+All listeners are executed in the order in which they are attached. However, you can provide a priority value, and you can influence the order of the execution.
 
-- Higher priority values execute earlier.
-- Lower (negative) priority values execute later.
+- Higher priority values execute earlier
+- Lower (negative) priority values execute later
 
 ```php
 class UserEventListener implements DotEventListenerInterface
@@ -136,12 +136,12 @@ class UserEventListener implements DotEventListenerInterface
 }
 ```
 
-As you can notice, we attach the same event name to listeners, so once we trigger the event both callback will run one after another.
-But because we provide priority, the second attach will run first because has a higher priority.
+As you can notice, we attach the same event name to listeners, so once we trigger the event, both callbacks will run one after another.
+But because we provide priority, the second attachment will run first because it has a higher priority.
 
 ## Short-circuiting the execution
 
-Sometimes you have more listeners to an event, and you may want to stop the execution of the event if something is wrong in one of the listeners.
+Sometimes you have more listeners to an event, and you may want to stop the execution of the event if something is wrong with one of the listeners.
 
 ```php
 
@@ -152,15 +152,14 @@ Sometimes you have more listeners to an event, and you may want to stop the exec
 
     public function onUserPostUpdateSecond(UserEvent $event)
     {
-    
         // this will not execute
-    
     }
 ```
 
 ## Returns
 
-You can return whatever you want in a listener callback. All events trigger returns an instance of `Laminas\EventManager\ResponseCollection` so you can have information if the event has stopped, or if event returned some expected object.
+You can return whatever you want in a listener callback.
+All events trigger return an instance of `Laminas\EventManager\ResponseCollection` so you can have information if the event has stopped, or if event returned some expected object.
 
 ```php
 class MyService
@@ -168,13 +167,12 @@ class MyService
     #[Dot\AnnotatedServices\Attribute\Inject(EventManagerInterface::class)]
     public function __construct(private EventManagerInterface $eventManager) 
     {
-    
     }
     
     public function update()
     {
         /** @var Laminas\EventManager\ResponseCollection $result */
-        $result  = $this->eventManager->triggerEvent(new UserEvent(UserEvent::EVENTS_POST_UPDATE, params: ['user' => $user]));
+        $result = $this->eventManager->triggerEvent(new UserEvent(UserEvent::EVENTS_POST_UPDATE, params: ['user' => $user]));
         $result->stopped(); // true or false if propagation is stopped
         $result->first(); // what last listener has returned (on multiple listeners it uses LIFO mode)
     }
