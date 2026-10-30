@@ -10,6 +10,9 @@ use Laminas\EventManager\EventManagerInterface;
 
 class ConfigProvider
 {
+    /**
+     * @return array<string, mixed>
+     */
     public function __invoke(): array
     {
         return [
@@ -18,6 +21,9 @@ class ConfigProvider
         ];
     }
 
+    /**
+     * @return array<string, array<string, mixed>>
+     */
     public function getDependencyConfig(): array
     {
         return [
