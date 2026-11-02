@@ -11,8 +11,13 @@ class EventTest extends TestCase
 {
     public function testEventCreation(): void
     {
-        $event = new Event('testEvent', $this);
-        $this->assertSame(Event::class, $event::class);
+        $params = ['user' => 'dotkernel'];
+        $event  = new Event('testEvent', $this, $params);
+
+        $this->assertSame('testEvent', $event->getName());
+        $this->assertSame($this, $event->getTarget());
+        $this->assertSame($params, $event->getParams());
+        $this->assertSame('dotkernel', $event->getParam('user'));
     }
 
     public function testEventPropagation(): void

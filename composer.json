@@ -17,16 +17,15 @@
         }
     ],
     "require": {
-        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
         "laminas/laminas-eventmanager": "^3.4",
-        "laminas/laminas-servicemanager": "^3.10 || ^4.0",
-        "psr/http-message": "^1.0 || ^2.0"
+        "laminas/laminas-servicemanager": "^3.10 || ^4.0"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "^3.0",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-phpunit": "^2.0",
-        "phpunit/phpunit": "^10.2"
+        "phpunit/phpunit": "^12.0"
     },
     "autoload": {
         "psr-4": {
