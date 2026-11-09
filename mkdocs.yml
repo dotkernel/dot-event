@@ -13,6 +13,7 @@ nav:
       - Installation: v5/installation.md
       - Configuration: v5/configuration.md
       - Usage: v5/usage.md
+      - "Upgrading from v4": v5/upgrade.md
   - v4:
       - Overview: v4/overview.md
       - Installation: v4/installation.md

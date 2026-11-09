@@ -4,6 +4,8 @@
 
 - PHP 8.3, 8.4, 8.5 or 8.6
 - A PSR-11 container that exposes the merged application configuration as a `config` service. Mezzio and Dotkernel applications provide this out of the box.
+- `psr/container` (installed with the package); any PSR-11 container works, `laminas/laminas-servicemanager` is no longer installed with it.
+- The `ConfigProvider` array (`factories` and `aliases`) follows the Laminas ServiceManager format, so the container must understand it; Mezzio and Dotkernel applications do.
 
 ## Install
 

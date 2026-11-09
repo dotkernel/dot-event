@@ -6,9 +6,9 @@ namespace DotTest\Event;
 
 use Dot\Event\ConfigProvider;
 use Dot\Event\Factory\EventManagerFactory;
+use DotTest\Event\Asset\ArrayContainer;
 use Laminas\EventManager\EventManager;
 use Laminas\EventManager\EventManagerInterface;
-use Laminas\ServiceManager\ServiceManager;
 use PHPUnit\Framework\TestCase;
 
 class ConfigProviderTest extends TestCase
@@ -48,10 +48,9 @@ class ConfigProviderTest extends TestCase
         );
     }
 
-    public function testEventManagerResolvesFromServiceManager(): void
+    public function testEventManagerResolvesFromContainer(): void
     {
-        $container = new ServiceManager($this->config['dependencies']);
-        $container->setService('config', ['dot-event' => []]);
+        $container = new ArrayContainer($this->config['dependencies'], ['config' => ['dot-event' => []]]);
 
         $eventManager = $container->get(EventManagerInterface::class);
 

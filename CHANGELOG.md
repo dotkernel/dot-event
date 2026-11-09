@@ -7,6 +7,7 @@
 - Minimum supported PHP version is now 8.3; PHP 8.6 is allowed.
 - `Dot\Event\Factory\EventManagerFactory` now throws `Dot\Event\Exception\RuntimeException` (which extends `\RuntimeException`) when a configured listener does not implement `Dot\Event\DotEventListenerInterface`.
 - Entries under the `dot-event` config key may now also be listener instances.
+- The package now requires `psr/container` directly instead of `laminas/laminas-servicemanager`.
 
 ### Added
 
@@ -20,6 +21,7 @@
 
 - Support for PHP 8.2.
 - The `psr/http-message` requirement, which the package never used. Projects that rely on it must require it directly.
+- The `laminas/laminas-servicemanager` requirement. Projects that rely on it must require it directly.
 
 ### Fixed
 
