@@ -25,7 +25,10 @@ final class ArrayContainer implements ContainerInterface
         $this->services = $services;
     }
 
-    public function get(string $id): mixed
+    /**
+     * @param string $id
+     */
+    public function get($id): mixed
     {
         $id = $this->resolveAlias($id);
 
@@ -46,7 +49,10 @@ final class ArrayContainer implements ContainerInterface
         return $this->services[$id] = $instance($this, $id);
     }
 
-    public function has(string $id): bool
+    /**
+     * @param string $id
+     */
+    public function has($id): bool
     {
         $id = $this->resolveAlias($id);
 
