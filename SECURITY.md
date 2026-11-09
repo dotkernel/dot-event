@@ -4,6 +4,7 @@
 
 | Version | Supported          | PHP Version                                                                                               |
 |---------|--------------------|-----------------------------------------------------------------------------------------------------------|
+| 5.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/5.0.0) |
 | 4.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/4.4.0) |
 | 3.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-event/3.5.0) |
 | <= 2.x  | :x:                |                                                                                                           |
@@ -25,7 +26,6 @@ project contributors a chance to resolve the vulnerability and issue a new
 release prior to any public exposure; this helps protect the project's
 users and provides them with a chance to upgrade and/or update to
 protect their applications.
-
 
 ## Policy
 

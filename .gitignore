@@ -2,6 +2,8 @@ clover.xml
 coveralls-upload.json
 .phpunit.result.cache
 .phpcs-cache
+.phpunit.cache
+docs/html/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
