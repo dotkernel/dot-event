@@ -18,6 +18,6 @@ Documentation is available at: https://docs.dotkernel.org/dot-event/.
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/stargazers)
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-event)](https://github.com/dotkernel/dot-event/blob/4.0/LICENSE.md)
 
-[![Build Static](https://github.com/dotkernel/dot-event/actions/workflows/continuous-integration.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-event/actions/workflows/continuous-integration.yml)
+[![Build Static](https://github.com/dotkernel/dot-event/actions/workflows/continuous-integration.yml/badge.svg?branch=4.x)](https://github.com/dotkernel/dot-event/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-event/graph/badge.svg?token=C00YQLVZ7Y)](https://codecov.io/gh/dotkernel/dot-event)
-[![PHPStan](https://github.com/dotkernel/dot-event/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-event/actions/workflows/static-analysis.yml)
+[![PHPStan](https://github.com/dotkernel/dot-event/actions/workflows/static-analysis.yml/badge.svg?branch=4.x)](https://github.com/dotkernel/dot-event/actions/workflows/static-analysis.yml)
